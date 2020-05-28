@@ -26,9 +26,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-	
-	public function sections()
-	{
-		return $this->belongsToMany('App\Section', 'user_section', 'user_id', 'section_id');
-	}
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function sections()
+    {
+        return $this->belongsToMany('App\Section', 'user_section', 'user_id', 'section_id');
+    }
 }
